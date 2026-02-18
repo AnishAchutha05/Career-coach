@@ -2,17 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 10, 10;
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
-  font-family: var(--font-inter);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-playfair);
+  background: black;
+  color: white;
 }

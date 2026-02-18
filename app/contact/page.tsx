@@ -5,7 +5,7 @@ import { ArrowLeft, Copy, Check, Mail, Send, Linkedin, Instagram, ArrowUpRight }
 import Link from "next/link";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { ContactCTA } from "./contactCTA";
+import { ContactCTA } from "./ContactCTA";
 
 export default function ContactPage() {
   const [copied, setCopied] = useState(false);

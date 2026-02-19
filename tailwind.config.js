@@ -1,38 +1,83 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class", "class"], // <--- Required for the theme toggle to work
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}", // <--- This is the most important line
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["var(--font-inter)"],
-        serif: ["var(--font-playfair)"],
-      },
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-      fontFamily: {
-       sans: ["var(--font-inter)"],
-       serif: ["var(--font-playfair)"],
-    },
-    
-    // ADD THIS ANIMATION SECTION
-    animation: {
-      marquee: "marquee 40s linear infinite",
-    },
-    keyframes: {
-      marquee: {
-        "0%": { transform: "translateX(0)" },
-        "100%": { transform: "translateX(-50%)" },
-      },
-    },
-    },
-    
+  	extend: {
+  		fontFamily: {
+  			sans: [
+  				'var(--font-inter)'
+  			],
+  			serif: [
+  				'var(--font-playfair)'
+  			]
+  		},
+  		colors: {
+  			border: 'hsl(var(--border))',
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		animation: {
+  			marquee: 'marquee 40s linear infinite'
+  		},
+  		keyframes: {
+  			marquee: {
+  				'0%': {
+  					transform: 'translateX(0)'
+  				},
+  				'100%': {
+  					transform: 'translateX(-50%)'
+  				}
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }

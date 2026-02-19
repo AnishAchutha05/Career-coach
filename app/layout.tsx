@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-// import { Navbar } from "../components/Navbar"; // Commenting this out to isolate the error first
+import { Navbar } from "../components/Navbar";
 
 const inter = Inter({ 
   subsets: ["latin"], 
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   description: "Developing Human Excellence",
 };
 
-// THIS IS THE PART YOU WERE MISSING OR BROKE
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,8 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} bg-black text-white`}>
-        {/* <Navbar />  We will turn this back on after the error is gone */}
+      <body className={`${inter.variable} ${playfair.variable} bg-black text-white overflow-x-hidden w-full antialiased`}>
+        <Navbar />
         {children}
       </body>
     </html>

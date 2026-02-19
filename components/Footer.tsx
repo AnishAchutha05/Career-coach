@@ -31,10 +31,10 @@ export const Footer = () => {
             <div>
               <h4 className="font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs">Menu</h4>
               <ul className="space-y-4 text-gray-300">
-                <li><Link href="/about" className="hover:text-purple-400 transition">The Story</Link></li>
+                <li><Link href="/about" className="hover:text-purple-400 transition">Vision</Link></li>
                 <li><Link href="/individual" className="hover:text-purple-400 transition">Individual Coaching</Link></li>
                 <li><Link href="/corporate" className="hover:text-purple-400 transition">Corporate Training</Link></li>
-                <li><Link href="/testimonials" className="hover:text-purple-400 transition">Success Stories</Link></li>
+                <li><Link href="/success-stories" className="hover:text-purple-400 transition">Success Stories</Link></li>
               </ul>
             </div>
             <div>

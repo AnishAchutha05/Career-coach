@@ -1,23 +1,53 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
-import Link from "next/link";
+import { ArrowDown, ArrowRight } from "lucide-react"; // Added ArrowRight
+import Link from "next/link"; // Added Link import
 
 export const Hero = () => {
   return (
-    <section className="relative flex flex-col bg-[#0a0a0a]">
+    <section className="relative flex flex-col bg-black">
       
       {/* --- PART 1: THE HOOK (100vh) --- */}
       <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
         
-        {/* Background Mesh */}
-        <div className="absolute inset-0 -z-10">
-           <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-purple-900/20 blur-[120px]" />
-           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-blue-900/10 blur-[100px]" />
+        {/* --- THE NEBULA BACKGROUND --- */}
+        <div className="absolute inset-0 pointer-events-none z-0">
+           {/* Primary Indigo Glow */}
+           <motion.div
+             animate={{ 
+               scale: [1, 1.3, 1],
+               rotate: [0, 45, 0],
+               opacity: [0.3, 0.5, 0.3] 
+             }}
+             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-indigo-600 blur-[130px] rounded-full mix-blend-screen transform-gpu"
+           />
+
+           {/* Cyan/Teal Movement */}
+           <motion.div
+             animate={{ 
+               x: [-120, 120, -120],
+               y: [-60, 60, -60],
+               opacity: [0.2, 0.4, 0.2]
+             }}
+             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute top-1/4 left-1/4 w-[550px] h-[550px] bg-teal-500 blur-[110px] rounded-full mix-blend-screen transform-gpu"
+           />
+
+           {/* Subtle Magenta Pulse */}
+           <motion.div
+             animate={{ 
+               x: [80, -80, 80],
+               y: [80, -80, 80],
+               opacity: [0.2, 0.3, 0.2]
+             }}
+             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+             className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-600 blur-[110px] rounded-full mix-blend-screen transform-gpu"
+           />
         </div>
 
-        {/* Main Text */}
+        {/* --- CONTENT OVERLAY --- */}
         <div className="container px-4 mx-auto text-center z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -25,7 +55,7 @@ export const Hero = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 flex justify-center"
           >
-            <span className="px-5 py-2 border border-white/10 rounded-full text-[10px] uppercase tracking-[0.3em] text-purple-200 bg-white/5 backdrop-blur-sm">
+            <span className="px-5 py-2 border border-white/10 rounded-full text-[10px] uppercase tracking-[0.3em] text-indigo-200 bg-white/5 backdrop-blur-sm">
               Developing Human Excellence
             </span>
           </motion.div>
@@ -70,30 +100,34 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-
+      
       {/* --- PART 2: THE FOUNDER TEASER (60vh) --- */}
-      <div className="h-[60vh] border-t border-white/5 relative overflow-hidden flex items-center">
+      <div className="h-[60vh] border-t border-white/5 relative overflow-hidden flex items-center bg-black">
         <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
           
-          {/* Left: The Image (Small & Stylish) */}
-          <div className="relative h-[40vh] w-full max-w-md rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 group">
-             {/* IMAGE PLACEHOLDER: Replace with <img src="/ajit.jpg" ... /> */}
+          {/* Left: The Image */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative h-[40vh] w-full max-w-md rounded-2xl overflow-hidden bg-neutral-900 border border-white/10 group"
+          >
              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
              <div className="absolute inset-0 flex items-center justify-center text-white/20 font-serif text-2xl group-hover:scale-105 transition-transform duration-700">
+               {/* Replace with <img src="/ajit.jpg" className="object-cover w-full h-full" /> */}
                [Founder Photo]
              </div>
              
-             {/* Name Tag on Image */}
              <div className="absolute bottom-6 left-6 z-20">
                <div className="text-white font-serif text-xl">Ajit Achutha</div>
                <div className="text-white/50 text-xs tracking-widest uppercase">Principal Coach</div>
              </div>
-          </div>
+          </motion.div>
 
           {/* Right: The Intro & Slide Button */}
           <div className="flex flex-col justify-center">
-             <h3 className="text-3xl md:text-5xl font-serif mb-6 leading-tight">
-               The Architect <br/> of <span className="text-purple-400">Identity.</span>
+             <h3 className="text-3xl md:text-5xl font-serif mb-6 leading-tight text-white">
+               The Architect <br/> of <span className="text-indigo-400">Identity.</span>
              </h3>
              <p className="text-gray-500 mb-10 max-w-md">
                "We don't just teach communication; we engineer the internal self."
@@ -101,7 +135,7 @@ export const Hero = () => {
 
              {/* THE SLIDE BUTTON */}
              <div>
-               <Link href="/about" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-white/5 px-8 font-medium text-white transition-all duration-300 hover:w-40 hover:bg-white/10 border border-white/10">
+               <Link href="/about" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-white/5 px-8 font-medium text-white transition-all duration-300 hover:bg-white/10 border border-white/10">
                   <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
                     <div className="relative h-full w-8 bg-white/20" />
                   </div>
@@ -114,7 +148,6 @@ export const Hero = () => {
 
         </div>
       </div>
-
     </section>
   );
 };

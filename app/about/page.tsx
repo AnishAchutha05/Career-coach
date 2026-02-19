@@ -97,7 +97,7 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8">
-                   <h3 className="text-3xl font-serif text-white">Ajit Achutha</h3>
+                   <h3 className="text-3xl font-serif text-white">Ajit Kaikini</h3>
                    <p className="text-indigo-400 text-sm tracking-widest uppercase mt-2">Founder & Principal Coach</p>
                 </div>
              </div>

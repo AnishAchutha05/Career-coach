@@ -33,7 +33,7 @@ const modules = [
 export default function SchoolsPage() {
   return (
     <div className="bg-black min-h-screen text-white selection:bg-green-500 selection:text-black">
-      <Navbar />
++
 
       {/* --- SHARED NEBULA BACKGROUND (Green/Teal Theme) --- */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -76,13 +76,13 @@ export default function SchoolsPage() {
                 For Universities & Students
               </span>
               <h1 className="text-5xl md:text-7xl font-serif leading-[1.1] mb-8">
-                Don't just graduate. <br/>
+                Don&apos;t just graduate. <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-cyan-500 font-medium">
                   Launch.
                 </span>
               </h1>
               <p className="text-xl text-gray-400 leading-relaxed mb-10 max-w-lg">
-                Technical skills get you the interview. Personality gets you the job. We build the "Human Skills" that engineering and MBA degrees often miss.
+                Technical skills get you the interview. Personality gets you the job. We build the &quot;Human Skills&quot; that engineering and MBA degrees often miss.
               </p>
               <div className="flex gap-4">
                  <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-green-500 hover:text-black transition-all shadow-[0_0_30px_-5px_rgba(34,197,94,0.3)]">
@@ -186,7 +186,6 @@ export default function SchoolsPage() {
            </button>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

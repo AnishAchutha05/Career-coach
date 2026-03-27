@@ -46,7 +46,7 @@ export const Testimonials = () => {
               key={i} 
               className="w-[400px] p-8 rounded-3xl bg-[#0f0f0f] border border-white/5 hover:border-purple-500/30 transition-colors flex-shrink-0"
             >
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed font-serif">"{review.text}"</p>
+              <p className="text-xl text-gray-300 mb-8 leading-relaxed font-serif">&quot;{review.text}&quot;</p>
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center text-white font-bold">
                   {review.author[0]}

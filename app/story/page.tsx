@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowLeft, Play, Pause, Milestone, Sparkles, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowLeft, Play, Pause, Sparkles, Zap } from "lucide-react";
 import Link from "next/link";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
@@ -20,7 +20,7 @@ export default function StoryPage() {
 
   return (
     <div className="bg-[#020202] min-h-screen text-white selection:bg-indigo-500 selection:text-white">
-      <Navbar />
++
 
       {/* --- HYPNOTIC STARFIELD BACKGROUND --- */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -53,7 +53,7 @@ export default function StoryPage() {
                 The Story <br/> behind the <br/> <span className="italic font-light text-white/50">Shift.</span>
               </h1>
               <p className="text-xl text-gray-400 leading-relaxed font-light">
-                Ajit Achutha didn't start with a business plan. He started with a question: Why do high-performers feel like imposters?
+                Ajit Achutha didn&apos;t start with a business plan. He started with a question: Why do high-performers feel like imposters?
               </p>
             </div>
 
@@ -92,7 +92,7 @@ export default function StoryPage() {
         <section className="py-40 relative flex flex-col items-center">
            <div className="text-center mb-24 max-w-2xl px-6">
               <h2 className="text-4xl font-serif mb-6">Engineering Composure</h2>
-              <p className="text-gray-500">We don't just teach communication; we architect the internal state from which all communication flows.</p>
+              <p className="text-gray-500">We don&apos;t just teach communication; we architect the internal state from which all communication flows.</p>
            </div>
 
            {/* 3D PLACEHOLDER: This is where we will insert your Spline/ThreeJS model */}
@@ -139,7 +139,6 @@ export default function StoryPage() {
            </Link>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

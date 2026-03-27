@@ -1,58 +1,91 @@
-// components/Footer.tsx
+"use client";
 import React from "react";
 import Link from "next/link";
-import { Instagram, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
-export const Footer = () => {
+const NAV = [
+  { label: "About Ajit",       href: "/about" },
+  { label: "Programs",         href: "/programs" },
+  { label: "Corporate",        href: "/corporate" },
+  { label: "Campus",           href: "/campus" },
+  { label: "Contact",          href: "/contact" },
+];
+
+
+
+export function Footer() {
   return (
-    <footer className="bg-neutral-950 text-white pt-24 pb-32 border-t border-white/5 relative z-40">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 mb-20">
-          {/* CTA Section */}
-          <div>
-            <h2 className="text-5xl md:text-7xl font-serif tracking-tight mb-8">
-              Let's Talk.
-            </h2>
-            <p className="text-gray-400 text-lg mb-10 max-w-md leading-relaxed">
-              Ready to upgrade your identity, your team, or your institution? 
-              The journey begins with a conversation.
-            </p>
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-purple-500 hover:text-white transition-all"
-            >
-              Start a Conversation 
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform"/>
-            </Link>
-          </div>
+    <footer className="bg-[#1A1009] text-white">
 
-          {/* Links Section */}
-          <div className="grid grid-cols-2 gap-8 md:gap-12">
-            <div>
-              <h4 className="font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs">Menu</h4>
-              <ul className="space-y-4 text-gray-300">
-                <li><Link href="/about" className="hover:text-purple-400 transition">Vision</Link></li>
-                <li><Link href="/individual" className="hover:text-purple-400 transition">Individual Coaching</Link></li>
-                <li><Link href="/corporate" className="hover:text-purple-400 transition">Corporate Training</Link></li>
-                <li><Link href="/success-stories" className="hover:text-purple-400 transition">Success Stories</Link></li>
-              </ul>
+      {/* Main footer grid */}
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
+        {/* Brand column */}
+        <div className="md:col-span-4">
+          <div className="flex items-center gap-2.5 mb-6">
+            <div className="w-9 h-9 rounded-xl bg-[#C62828] flex items-center justify-center">
+              <span className="text-white text-sm font-black">B</span>
             </div>
-            <div>
-              <h4 className="font-bold mb-6 text-gray-500 uppercase tracking-widest text-xs">Connect</h4>
-              <ul className="space-y-4 text-gray-300">
-                <li><a href="#" className="flex items-center gap-2 hover:text-purple-400 transition"><Linkedin size={16}/> LinkedIn</a></li>
-                <li><a href="#" className="flex items-center gap-2 hover:text-purple-400 transition"><Instagram size={16}/> Instagram</a></li>
-                <li><a href="mailto:contact@buoyancee.com" className="flex items-center gap-2 hover:text-purple-400 transition"><Mail size={16}/> Email</a></li>
-              </ul>
+            <span className="font-black text-lg tracking-tight">BUOYANCEE</span>
+          </div>
+          <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
+            India&apos;s premier identity and soft skills institute. 30+ years, 6 languages, 50,000+ lives transformed.
+          </p>
+          <div className="space-y-3 text-sm text-white/50">
+            <a href="mailto:askbuoyancee@gmail.com" className="flex items-center gap-2.5 hover:text-white transition-colors">
+              <Mail size={14} className="text-[#C62828] shrink-0" />
+              askbuoyancee@gmail.com
+            </a>
+            <a href="tel:+918026789508" className="flex items-center gap-2.5 hover:text-white transition-colors">
+              <Phone size={14} className="text-[#C62828] shrink-0" />
+              (+91) 80 2678 9508
+            </a>
+            <div className="flex items-start gap-2.5">
+              <MapPin size={14} className="text-[#C62828] shrink-0 mt-0.5" />
+              <span>9th Block Jayanagar, Bengaluru 560 069</span>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/5 text-gray-600 text-sm">
-          <div>© {new Date().getFullYear()} Buoyancee. All rights reserved.</div>
+        {/* Navigation */}
+        <div className="md:col-span-3 md:col-start-6">
+          <p className="label-sm text-white/40 mb-5">Navigate</p>
+          <ul className="space-y-3">
+            {NAV.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="text-white/70 hover:text-white text-sm font-medium transition-colors hover:text-[#EF5350]">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Stats */}
+        <div className="md:col-span-3">
+          <p className="label-sm text-white/40 mb-5">By the Numbers</p>
+          <div className="space-y-5">
+            {[
+              { value: "30+",    label: "Years of practice" },
+              { value: "50K+",   label: "Lives transformed" },
+              { value: "450+",   label: "Corporate clients" },
+              { value: "6",      label: "Languages" },
+            ].map((s) => (
+              <div key={s.label}>
+                <div className="text-2xl font-black text-[#C62828]">{s.value}</div>
+                <div className="text-white/50 text-xs uppercase tracking-widest">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-white/30 text-xs">
+          <span>© {new Date().getFullYear()} Buoyancee. All rights reserved.</span>
+          <span>Crafted with purpose in Bengaluru, India</span>
         </div>
       </div>
     </footer>
   );
-};
+}

@@ -1,20 +1,23 @@
-import { Navbar } from "../components/Navbar";
-import { Hero } from "../components/Hero";
-import { Footer } from "@/components/Footer";
-import { Methodology } from "@/components/Methodology";
-import { Clients } from "@/components/Clients";
-import { Testimonials } from "@/components/Testimonials";
-
+import { HeroSection }        from "@/components/home/HeroSection";
+import { ImpactNumbers }       from "@/components/home/ImpactNumbers";
+import { PhilosophyStrip }     from "@/components/home/PhilosophyStrip";
+import { AboutTeaser }          from "@/components/home/AboutTeaser";
+import { ProgramsGrid }        from "@/components/home/ProgramsGrid";
+import { TrustedBy }           from "@/components/home/TrustedBy";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { FinalCTA }            from "@/components/home/FinalCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white border-4 border-transparent-500">
-      <Navbar />
-      <Hero />
-      <Methodology />
-      <Clients />
-      <Testimonials />
-      <Footer />
+    <main className="overflow-x-hidden">
+      <HeroSection />
+      <ImpactNumbers />
+      <PhilosophyStrip />
+      <AboutTeaser />
+      <ProgramsGrid />
+      <TrustedBy />
+      <TestimonialsSection />
+      <FinalCTA />
     </main>
   );
 }

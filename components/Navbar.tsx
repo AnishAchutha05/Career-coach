@@ -1,100 +1,138 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronUp } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-const mainNav = [
-  { name: "Vision", path: "/about" },
-  { name: "Self", path: "/individual" },
-  { name: "Teams", path: "/corporate" },
-  { name: "Campus", path: "/schools" },
+const NAV_LINKS = [
+  { label: "About",     href: "/about" },
+  { label: "Programs",  href: "/programs" },
+  { label: "Corporate", href: "/corporate" },
+  { label: "Campus",    href: "/campus" },
+  { label: "Contact",   href: "/contact" },
 ];
 
-const secondaryNav = [
-  { name: "The Story", path: "/story" },
-  { name: "Success Stories", path: "/success-stories" },
-];
-
-export const Navbar = () => {
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <div className="fixed bottom-4 md:bottom-8 left-0 right-0 z-[100] flex justify-center px-2 md:px-6 pointer-events-none">
-      <div className="pointer-events-auto relative flex flex-col items-center gap-2 max-w-full">
-        
-        {/* --- EXPANDABLE MENU --- */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div 
-              key="more-menu"
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              className="absolute bottom-full mb-4 w-48 bg-[#0a0a0a]/90 backdrop-blur-2xl border border-white/10 rounded-2xl p-2 shadow-2xl overflow-hidden"
-            >
-              {secondaryNav.map((item) => (
-                <Link 
-                  key={item.name} 
-                  href={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* --- MAIN DOCK --- */}
-        <div className="flex items-center p-1 md:p-2 rounded-full bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/10 shadow-2xl w-full max-w-[98vw] md:max-w-fit">
-          
-          {/* Logo / Home */}
-          <Link href="/" className="px-2 md:px-5 py-2 md:py-3 font-serif font-bold text-white tracking-widest border-r border-white/10 hover:text-gray-300 transition-colors text-[10px] md:text-sm shrink-0">
-            BYNC.
+    <>
+      {/* No bounce — simple fade-in slide so it doesn't collide with hero headings */}
+      <motion.header
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/96 backdrop-blur-xl shadow-[0_2px_24px_rgba(44,27,27,0.08)] border-b border-[#2D1B1B]/6"
+            : "bg-transparent"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-18 flex items-center justify-between gap-6">
+          {/* Logo */}
+          <Link href="/" className="group flex items-center gap-2.5 shrink-0">
+            <div className="w-8 h-8 rounded-2xl bg-[#C62828] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+              <span className="text-white text-xs font-black">B</span>
+            </div>
+            <span className="font-black text-base tracking-tight text-[#2D1B1B] group-hover:text-[#C62828] transition-colors">
+              BUOYANCEE
+            </span>
           </Link>
 
-          {/* Main Links - Ultra compact for mobile! */}
-          <div className="flex items-center shrink-0">
-            {mainNav.map((item) => {
-              const isActive = pathname === item.path;
-              return (
-                <Link 
-                  key={item.name} 
-                  href={item.path}
-                  className={`relative px-1.5 sm:px-2 md:px-4 py-2 md:py-3 text-[7px] sm:text-[9px] md:text-xs uppercase tracking-widest font-bold transition-colors ${isActive ? "text-white" : "text-gray-500 hover:text-gray-300"}`}
+          {/* Desktop links */}
+          <ul className="hidden md:flex items-center gap-0.5">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
+                    pathname === link.href
+                      ? "text-[#C62828] bg-red-50 font-bold"
+                      : "text-[#2D1B1B]/80 hover:text-[#C62828] hover:bg-red-50"
+                  }`}
                 >
-                  {isActive && (
-                    <motion.div layoutId="nav-pill" className="absolute inset-0 bg-white/10 rounded-full" transition={{ type: "spring", bounce: 0.2, duration: 0.6 }} />
-                  )}
-                  <span className="relative z-10">{item.name}</span>
+                  {link.label}
                 </Link>
-              );
-            })}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <div className="hidden md:flex">
+            <Link href="/contact" className="btn-red text-xs py-2.5 px-5">
+              Book a Session
+            </Link>
           </div>
 
-          {/* THE "MORE" TOGGLE */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className={`p-1.5 md:p-3 shrink-0 rounded-full transition-colors ${isOpen ? "bg-white/10 text-white" : "text-gray-500 hover:text-white"}`}
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-2xl bg-[#2D1B1B] text-white"
           >
-            {isOpen ? <X size={14} className="md:w-5 md:h-5" /> : <ChevronUp size={14} className="md:w-5 md:h-5" />}
+            {open ? <X size={16} /> : <Menu size={16} />}
           </button>
+        </nav>
+      </motion.header>
 
-          {/* Talk Button */}
-          <div className="pl-1 md:pl-2 border-l border-white/10 shrink-0">
-             <Link 
-               href="/contact" 
-               className="flex items-center justify-center px-3 md:px-6 py-2 md:py-3 rounded-full bg-rose-900 text-white font-bold text-[8px] md:text-xs uppercase tracking-widest hover:bg-rose-800 transition-all shadow-[0_0_20px_-5px_rgba(159,18,57,0.5)]"
-             >
-               Talk
-             </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* Mobile drawer */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-[#2D1B1B]/40 backdrop-blur-sm z-40 md:hidden"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 260 }}
+              className="fixed top-0 right-0 bottom-0 w-72 bg-white z-50 md:hidden flex flex-col shadow-2xl rounded-l-3xl"
+            >
+              <div className="flex items-center justify-between px-6 h-16 border-b border-[#2D1B1B]/6">
+                <span className="font-black text-[#2D1B1B] text-base">BUOYANCEE</span>
+                <button onClick={() => setOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-2xl bg-[#F5F3EE] text-[#2D1B1B]">
+                  <X size={14} />
+                </button>
+              </div>
+              <nav className="flex flex-col gap-1 p-4 flex-1">
+                {NAV_LINKS.map((link, i) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.06 }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`block py-3 px-4 rounded-2xl text-base font-semibold transition-all ${
+                        pathname === link.href ? "bg-[#C62828] text-white" : "text-[#2D1B1B] hover:bg-[#F5F3EE]"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+              <div className="p-4 border-t border-[#2D1B1B]/6">
+                <Link href="/contact" className="btn-red w-full justify-center text-center block text-xs">
+                  Book a Session
+                </Link>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
-};
+}

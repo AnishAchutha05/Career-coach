@@ -51,7 +51,6 @@ const curriculum = [
 export default function IndividualPage() {
   return (
     <div className="bg-black min-h-screen text-white selection:bg-violet-500 selection:text-white">
-      <Navbar />
 
       {/* --- SHARED VIOLET NEBULA BACKGROUND --- */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -183,12 +182,12 @@ export default function IndividualPage() {
               <div className="relative">
                 <span className="absolute -left-[3.4rem] md:-left-[5.4rem] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/20 flex items-center justify-center text-xs font-mono text-gray-500">01</span>
                 <h3 className="text-3xl font-serif text-white mb-6">Decode.</h3>
-                <p className="text-xl text-gray-400 leading-relaxed">We map the hidden beliefs and "glitches" in your current identity.</p>
+                <p className="text-xl text-gray-400 leading-relaxed">We map the hidden beliefs and &quot;glitches&quot; in your current identity.</p>
               </div>
               <div className="relative">
                 <span className="absolute -left-[3.4rem] md:-left-[5.4rem] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-violet-900/40 border border-violet-500 text-violet-400 flex items-center justify-center text-xs font-mono">02</span>
                 <h3 className="text-3xl font-serif text-white mb-6">Reprogram.</h3>
-                <p className="text-xl text-gray-400 leading-relaxed">We rewrite the code. Constructing a resilient self-image that doesn't need external validation.</p>
+                <p className="text-xl text-gray-400 leading-relaxed">We rewrite the code. Constructing a resilient self-image that doesn&apos;t need external validation.</p>
               </div>
               <div className="relative">
                 <span className="absolute -left-[3.4rem] md:-left-[5.4rem] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/20 flex items-center justify-center text-xs font-mono text-gray-500">03</span>
@@ -207,14 +206,14 @@ export default function IndividualPage() {
                  <div className="p-12 bg-black/80 grayscale opacity-60 hover:opacity-100 transition-opacity duration-500">
                     <span className="block text-xs font-bold tracking-widest uppercase text-gray-600 mb-8">Legacy OS</span>
                     <ul className="space-y-8">
-                       <li className="flex gap-4 text-lg text-gray-400 line-through decoration-red-900/50 italic font-serif">"I hope they like me."</li>
+                       <li className="flex gap-4 text-lg text-gray-400 line-through decoration-red-900/50 italic font-serif">&quot;I hope they like me.&quot;</li>
                        <li className="flex gap-4 text-lg text-gray-400 line-through decoration-red-900/50 italic font-serif">Avoiding conflict to keep peace.</li>
                     </ul>
                  </div>
                  <div className="p-12 bg-violet-950/20 backdrop-blur-xl">
                     <span className="block text-xs font-bold tracking-widest uppercase text-violet-400 mb-8">Upgraded OS</span>
                     <ul className="space-y-8">
-                       <li className="flex gap-4 text-lg text-white font-serif">"I know my value."</li>
+                       <li className="flex gap-4 text-lg text-white font-serif">&quot;I know my value.&quot;</li>
                        <li className="flex gap-4 text-lg text-white font-serif">Navigating conflict to find truth.</li>
                     </ul>
                  </div>
@@ -237,7 +236,6 @@ export default function IndividualPage() {
            </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

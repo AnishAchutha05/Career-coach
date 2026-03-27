@@ -1,83 +1,48 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class", "class"], // <--- Required for the theme toggle to work
+const config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-  	extend: {
-  		fontFamily: {
-  			sans: [
-  				'var(--font-inter)'
-  			],
-  			serif: [
-  				'var(--font-playfair)'
-  			]
-  		},
-  		colors: {
-  			border: 'hsl(var(--border))',
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		},
-  		animation: {
-  			marquee: 'marquee 40s linear infinite'
-  		},
-  		keyframes: {
-  			marquee: {
-  				'0%': {
-  					transform: 'translateX(0)'
-  				},
-  				'100%': {
-  					transform: 'translateX(-50%)'
-  				}
-  			}
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+    extend: {
+      colors: {
+        /* ── Brand Palette ───────────────────────── */
+        brand: {
+          red:    '#C62828',   /* primary action  */
+          'red-deep': '#8B0000', /* dark red hover  */
+          'red-soft': '#EF5350', /* light red glow  */
+          white:  '#FFFFFF',
+          cream:  '#FAFAF7',   /* off-white bg    */
+          smoke:  '#F5F3EE',   /* section alt bg  */
+          black:  '#0A0A0A',
+          ink:    '#1A1009',   /* rich near-black */
+          muted:  '#7C6B5E',   /* body text muted */
+        },
+      },
+      fontFamily: {
+        sans:  ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Georgia', 'Palatino Linotype', 'serif'],
+        mono:  ['ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      animation: {
+        'marquee':      'marquee 30s linear infinite',
+        'marquee-slow': 'marquee 50s linear infinite',
+        'float':        'float 6s ease-in-out infinite',
+        'pulse-slow':   'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-up':      'fadeUp 0.6s ease forwards',
+        'spin-slow':    'spin 12s linear infinite',
+      },
+      keyframes: {
+        marquee:  { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+        float:    { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+        fadeUp:   { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+      },
+      backdropBlur: { xl: '24px' },
+    },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [],
+};
+
+module.exports = config;

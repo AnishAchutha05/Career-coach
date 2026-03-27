@@ -90,7 +90,7 @@ export const Hero = () => {
                The Architect <br className="hidden md:block"/> of <span className="text-rose-700 italic">Identity.</span>
              </h3>
              <p className="text-gray-400 text-sm md:text-base mb-8 md:mb-10 max-w-md mx-auto md:mx-0">
-               "We don't just teach communication; we engineer the internal self."
+               &quot;We don&apos;t just teach communication; we engineer the internal self.&quot;
              </p>
 
              {/* THE SLIDE BUTTON */}

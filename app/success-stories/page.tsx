@@ -15,7 +15,7 @@ const metrics = [
 export default function SuccessStoriesPage() {
   return (
     <div className="bg-black min-h-screen text-white selection:bg-violet-500">
-      <Navbar />
++
 
       {/* --- VIOLET NEBULA BACKGROUND --- */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -67,7 +67,7 @@ export default function SuccessStoriesPage() {
                <div className="space-y-8">
                   <Quote className="text-violet-500 w-12 h-12 opacity-50" />
                   <h2 className="text-3xl md:text-5xl font-serif leading-tight">
-                    "The shift in my leadership team wasn't just visible; it was measurable."
+                    &quot;The shift in my leadership team wasn&apos;t just visible; it was measurable.&quot;
                   </h2>
                   <p className="text-xl text-gray-400 font-light">
                     How we helped a Fortune 500 tech lead reduce team churn by 40% in six months through Identity-First coaching.
@@ -120,7 +120,6 @@ export default function SuccessStoriesPage() {
            </div>
         </section>
 
-        <Footer />
       </div>
     </div>
   );

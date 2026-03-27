@@ -21,7 +21,7 @@ const COLLEGE_PROGRAMS = [
 export default function CampusPage() {
   const ref = useRef<HTMLDivElement>(null);
   // THE WHEATISH COLOR
-  const wheatColor = "#F3EFE0"; 
+  const wheatColor = "#F5EDDB"; 
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

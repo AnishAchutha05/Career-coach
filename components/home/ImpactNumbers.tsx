@@ -43,7 +43,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function ImpactNumbers() {
   // WHEATISH COLOR DEFINITION
-  const wheatColor = "#F3EFE0"; // A sophisticated, warm wheat/cream hex
+  const wheatColor = "#F5EDDB"; // A sophisticated, warm wheat/cream hex
 
   return (
     <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: "linear-gradient(135deg, #1E293B 0%, #0F172A 60%, #1a1f2e 100%)" }}>

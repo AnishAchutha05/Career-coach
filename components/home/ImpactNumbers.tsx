@@ -6,9 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const NUMBERS = [
   { value: 50000, suffix: "+", label: "Lives Transformed",    color: "text-[#EF5350]" },
-  { value: 450,   suffix: "+", label: "Corporate Clients",    color: "text-white" },
+  { value: 450,    suffix: "+", label: "Corporate Clients",    color: "text-white" },
   { value: 30,    suffix: "+", label: "Years of Experience",  color: "text-[#EF5350]" },
-  { value: 6,     suffix: "",  label: "Languages Spoken",     color: "text-white" },
+  { value: 6,      suffix: "",  label: "Languages Spoken",      color: "text-white" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -18,6 +18,8 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   useEffect(() => {
     if (!inView || !ref.current) return;
     gsap.registerPlugin(ScrollTrigger);
+    
+    // Create a clean GSAP animation for the numbers
     gsap.fromTo(
       ref.current,
       { textContent: "0" },
@@ -27,7 +29,10 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
         ease: "power2.out",
         snap: { textContent: 1 },
         onUpdate() {
-          if (ref.current) ref.current.textContent = Math.round(Number(ref.current.textContent)).toLocaleString() + suffix;
+          if (ref.current) {
+            const currentVal = Math.round(Number(ref.current.textContent));
+            ref.current.textContent = currentVal.toLocaleString() + suffix;
+          }
         },
       }
     );
@@ -37,27 +42,32 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 }
 
 export function ImpactNumbers() {
+  // WHEATISH COLOR DEFINITION
+  const wheatColor = "#F3EFE0"; // A sophisticated, warm wheat/cream hex
+
   return (
     <section className="relative py-20 md:py-28 overflow-hidden" style={{ background: "linear-gradient(135deg, #1E293B 0%, #0F172A 60%, #1a1f2e 100%)" }}>
-      {/* Inward curves top */}
+      
+      {/* Inward curves top - Now Wheatish */}
       <div className="absolute top-0 left-0 right-0 h-12 overflow-hidden pointer-events-none z-10">
-        <div className="w-full h-24 rounded-b-[100%] -translate-y-1/2" style={{ background: "#FAFAF7" }} />
-      </div>
-      {/* Inward curves bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 overflow-hidden pointer-events-none z-10">
-        <div className="w-full h-24 rounded-t-[100%] translate-y-1/2" style={{ background: "#FAFAF7" }} />
+        <div className="w-full h-24 rounded-b-[100%] -translate-y-1/2" style={{ background: wheatColor }} />
       </div>
 
-      {/* Accent glow blobs */}
-      <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#C62828]/8 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Inward curves bottom - Now Wheatish */}
+      <div className="absolute bottom-0 left-0 right-0 h-12 overflow-hidden pointer-events-none z-10">
+        <div className="w-full h-24 rounded-t-[100%] translate-y-1/2" style={{ background: wheatColor }} />
+      </div>
+
+      {/* Accent glow blobs - subtle adjustment to keep the heat warm */}
+      <div className="absolute top-0 right-1/4 w-80 h-80 bg-[#EF5350]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-20">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="label-sm text-[#EF5350] text-center mb-14"
+          className="text-[#EF5350] text-center mb-14 text-xs font-bold uppercase tracking-[0.2em]"
         >
           The numbers that matter
         </motion.p>
@@ -72,10 +82,10 @@ export function ImpactNumbers() {
               transition={{ delay: i * 0.12, duration: 0.7 }}
               className="text-center md:px-8"
             >
-              <div className={`text-4xl md:text-6xl font-black mb-2 ${n.color}`}>
+              <div className={`text-4xl md:text-6xl font-black mb-2 tracking-tight ${n.color}`}>
                 <Counter value={n.value} suffix={n.suffix} />
               </div>
-              <div className="text-white/60 text-xs md:text-sm uppercase tracking-widest font-semibold">
+              <div className="text-white/60 text-[10px] md:text-xs uppercase tracking-[0.15em] font-bold">
                 {n.label}
               </div>
             </motion.div>

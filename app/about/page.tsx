@@ -72,7 +72,6 @@ function Roadmap() {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Animate the vertical line growing downward
       if (lineRef.current) {
         gsap.from(lineRef.current, {
           scaleY: 0,
@@ -87,7 +86,6 @@ function Roadmap() {
         });
       }
 
-      // Animate each roadmap node
       gsap.utils.toArray<HTMLElement>(".roadmap-node").forEach((node, i) => {
         const isLeft = i % 2 === 0;
         gsap.from(node, {
@@ -103,7 +101,6 @@ function Roadmap() {
         });
       });
 
-      // Animate the year markers
       gsap.utils.toArray<HTMLElement>(".roadmap-year").forEach((el) => {
         gsap.from(el, {
           scale: 0,
@@ -124,7 +121,6 @@ function Roadmap() {
 
   return (
     <div ref={containerRef} className="relative max-w-5xl mx-auto">
-      {/* Central vertical line */}
       <div
         ref={lineRef}
         className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[#C62828]/25 rounded-full -translate-x-1/2 hidden md:block"
@@ -141,7 +137,6 @@ function Roadmap() {
                 isLeft ? "" : "md:flex-row-reverse"
               }`}
             >
-              {/* Card */}
               <div className={`w-full md:w-[44%] ${isLeft ? "md:pr-12" : "md:pl-12"}`}>
                 <div className="card-paper p-6 md:p-8 group hover:shadow-lg transition-all">
                   <div className="flex items-center gap-3 mb-3">
@@ -149,15 +144,12 @@ function Roadmap() {
                   </div>
                   <h3 className="font-bold text-[#2D1B1B] text-xl mb-2">{item.title}</h3>
                   <p className="text-[#7C6B5E] text-sm leading-relaxed">{item.desc}</p>
-                  {/* Hover red accent */}
                   <div className="mt-4 w-8 h-0.5 bg-[#C62828]/30 group-hover:w-16 group-hover:bg-[#C62828] transition-all duration-500 rounded-full" />
                 </div>
               </div>
 
-              {/* Center dot + year */}
               <div className="hidden md:flex flex-col items-center justify-center w-[12%] relative">
                 <div className="roadmap-year relative">
-                  {/* Ping animation */}
                   <div className="absolute inset-0 rounded-full bg-[#C62828]/20 roadmap-dot-ping" />
                   <div className="relative w-12 h-12 rounded-full bg-white border-2 border-[#C62828] flex items-center justify-center shadow-lg z-10">
                     <span className="text-[#C62828] font-black text-[10px] leading-tight text-center">{item.year}</span>
@@ -165,10 +157,8 @@ function Roadmap() {
                 </div>
               </div>
 
-              {/* Empty spacer for opposite side */}
               <div className="hidden md:block w-[44%]" />
 
-              {/* Mobile year badge */}
               <div className="md:hidden flex items-center gap-3 -mt-2">
                 <div className="w-2 h-2 rounded-full bg-[#C62828] shrink-0" />
                 <span className="text-[#C62828] font-black text-xs uppercase tracking-widest">{item.year}</span>
@@ -184,11 +174,10 @@ function Roadmap() {
 /* ── Full Page ────────────────────────────────────── */
 export default function AboutPage() {
   return (
-    <div className="bg-[#FAFAF7] min-h-screen overflow-x-hidden">
+    <div className="bg-[#F5EDDB] min-h-screen overflow-x-hidden">
 
       {/* ── VIDEO HERO ──────────────────────────── */}
       <section className="relative w-full bg-[#0F172A] overflow-hidden" style={{ minHeight: "70vh" }}>
-        {/* Video element — uses the YouTube embed or a placeholder */}
         <div className="absolute inset-0">
           <iframe
             className="w-full h-full object-cover"
@@ -198,10 +187,8 @@ export default function AboutPage() {
             style={{ border: "none", pointerEvents: "none", width: "100%", height: "100%" }}
           />
         </div>
-        {/* Dark overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/80 via-[#0F172A]/50 to-[#0F172A] pointer-events-none" />
 
-        {/* Content on top */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-28 pb-20 flex flex-col justify-end h-full" style={{ minHeight: "70vh" }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -239,7 +226,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── PHILOSOPHY QUOTE ────────────────────── */}
-      <section className="bg-white bg-net py-16 md:py-20">
+      <section className="bg-[#F5EDDB] bg-net py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8 text-center">
           <div className="section-divider mx-auto mb-8" style={{ margin: "0 auto 2rem" }} />
           <blockquote className="font-serif text-2xl md:text-3xl text-[#2D1B1B] leading-snug mb-5 italic">
@@ -250,7 +237,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── ROADMAP JOURNEY ─────────────────────── */}
-      <section className="bg-[#FAFAF7] bg-net py-20 md:py-28">
+      <section className="bg-[#F5EDDB] bg-net py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <p className="label-sm mb-3">The Journey</p>
@@ -258,13 +245,12 @@ export default function AboutPage() {
               Thirty years. <em className="italic font-normal text-[#C62828]">One mission.</em>
             </h2>
           </div>
-
           <Roadmap />
         </div>
       </section>
 
       {/* ── AWARDS ──────────────────────────────── */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-[#F5EDDB] bg-net py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-4">

@@ -24,19 +24,19 @@ function GlobeMesh() {
       {/* Transparent inner sphere */}
       <Sphere ref={solidRef} args={[1.3, 48, 48]}>
         <meshStandardMaterial
-          color="#C62828" metalness={0.2} roughness={0.6}
-          transparent opacity={0.1}
+          color="#FFFFFF" metalness={0.1} roughness={0.5}
+          transparent opacity={0.08}
         />
       </Sphere>
 
       {/* Wireframe lattice */}
       <Sphere ref={wireRef} args={[1.32, 28, 28]}>
-        <meshBasicMaterial color="#C62828" wireframe transparent opacity={0.6} />
+        <meshBasicMaterial color="#FFFFFF" wireframe transparent opacity={0.55} />
       </Sphere>
 
       {/* Outer glow wireframe */}
       <Sphere ref={outerRef} args={[1.58, 18, 18]}>
-        <meshBasicMaterial color="#EF5350" wireframe transparent opacity={0.12} />
+        <meshBasicMaterial color="#E8E8E8" wireframe transparent opacity={0.15} />
       </Sphere>
     </group>
   );
@@ -45,9 +45,9 @@ function GlobeMesh() {
 function GlobeScene() {
   return (
     <Canvas camera={{ position: [0, 0, 3.8], fov: 45 }} style={{ background: "transparent" }}>
-      <ambientLight intensity={0.6} />
-      <pointLight position={[5, 5, 5]} intensity={3} color="#C62828" />
-      <pointLight position={[-4, -3, 2]} intensity={1.2} color="#FF8A80" />
+      <ambientLight intensity={0.9} />
+      <pointLight position={[5, 5, 5]} intensity={3} color="#FFFFFF" />
+      <pointLight position={[-4, -3, 2]} intensity={1.5} color="#F0F0F0" />
       <GlobeMesh />
     </Canvas>
   );
@@ -62,7 +62,7 @@ const STATS = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-[#FAFAF7] bg-net flex items-center overflow-hidden pt-16">
+    <section className="relative min-h-screen bg-[#F5EDDB] bg-net flex items-center overflow-hidden pt-16">
       {/* Left accent bar */}
       <div className="absolute left-0 top-0 h-full w-1 bg-[#C62828] rounded-r-full" />
 

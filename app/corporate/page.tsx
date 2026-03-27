@@ -25,16 +25,9 @@ export default function CorporatePage() {
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".bento-panel").forEach((panel, i) => {
         gsap.from(panel, {
-          y: 60,
-          opacity: 0,
-          duration: 1,
-          ease: "power3.out",
+          y: 60, opacity: 0, duration: 1, ease: "power3.out",
           delay: (i % 4) * 0.1,
-          scrollTrigger: {
-            trigger: panel,
-            start: "top 88%",
-            toggleActions: "play none none reverse",
-          },
+          scrollTrigger: { trigger: panel, start: "top 88%", toggleActions: "play none none reverse" },
         });
       });
     }, containerRef);
@@ -42,32 +35,22 @@ export default function CorporatePage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-[#FAFAF7] min-h-screen pt-20 overflow-hidden">
+    <div ref={containerRef} className="bg-[#F5EDDB] min-h-screen pt-20 overflow-hidden">
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28">
-        <motion.div className="pill mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Corporate Solutions
-        </motion.div>
+        <motion.div className="pill mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Corporate Solutions</motion.div>
         <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-end">
-          <motion.h1
-            className="display-lg text-[#1A1009] md:w-7/12"
-            initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.h1 className="display-lg text-[#1A1009] md:w-7/12" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             Teams that <em className="italic font-normal text-[#C62828]">perform together.</em>
           </motion.h1>
-          <motion.p
-            className="body-lg md:w-5/12"
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+          <motion.p className="body-lg md:w-5/12" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
             Buoyancee partners with organisations across India to build high-performing, emotionally intelligent teams — from new hire induction to senior leadership alignment.
           </motion.p>
         </div>
       </section>
 
       {/* Services Bento Grid */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-[#F5EDDB] bg-net py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="mb-12">
             <div className="section-divider" />
@@ -75,7 +58,6 @@ export default function CorporatePage() {
               Four pillars of <em className="italic font-normal text-[#C62828]">corporate excellence</em>
             </h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
             <div className="bento-panel md:col-span-8 bg-[#C62828] rounded-2xl p-10 min-h-[280px] flex flex-col justify-between">
               <span className="text-white/20 text-5xl font-black">{SERVICES[0].icon}</span>
@@ -91,14 +73,14 @@ export default function CorporatePage() {
                 <p className="text-white/65 text-sm">{SERVICES[1].desc}</p>
               </div>
             </div>
-            <div className="bento-panel md:col-span-5 bg-[#F5F3EE] rounded-2xl p-8 min-h-[250px] flex flex-col justify-between border border-black/5">
+            <div className="bento-panel md:col-span-5 bg-[#EFE3CA] rounded-2xl p-8 min-h-[250px] flex flex-col justify-between border border-black/5">
               <span className="text-black/10 text-4xl font-black">{SERVICES[2].icon}</span>
               <div>
                 <h3 className="text-[#1A1009] font-black text-2xl mb-2">{SERVICES[2].title}</h3>
                 <p className="text-[#7C6B5E] text-sm">{SERVICES[2].desc}</p>
               </div>
             </div>
-            <div className="bento-panel md:col-span-7 bg-white rounded-2xl p-10 min-h-[250px] flex flex-col justify-between border border-black/8">
+            <div className="bento-panel md:col-span-7 bg-[#F5EDDB] rounded-2xl p-10 min-h-[250px] flex flex-col justify-between border border-black/8">
               <span className="text-black/8 text-4xl font-black">{SERVICES[3].icon}</span>
               <div>
                 <h3 className="text-[#1A1009] font-black text-3xl mb-3">{SERVICES[3].title}</h3>
@@ -127,7 +109,7 @@ export default function CorporatePage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#FAFAF7] py-20">
+      <section className="bg-[#F5EDDB] bg-net py-20">
         <div className="max-w-3xl mx-auto text-center px-6">
           <div className="section-divider mx-auto mb-6" style={{ margin: "0 auto 1.5rem" }} />
           <h2 className="display-md text-[#1A1009] mb-4">Ready to transform your team?</h2>

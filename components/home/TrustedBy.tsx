@@ -12,7 +12,7 @@ export function TrustedBy() {
   const doubled = [...CLIENTS, ...CLIENTS];
 
   return (
-    <section className="py-16 bg-white border-y border-black/5 overflow-hidden">
+    <section className="py-16 bg-[#F5EDDB] bg-net border-y border-black/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8 mb-8 text-center">
         <p className="label-sm text-[#7C6B5E]">Trusted by India&apos;s leading organisations</p>
       </div>
@@ -29,8 +29,8 @@ export function TrustedBy() {
             </div>
           ))}
         </div>
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F5EDDB] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F5EDDB] to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Row 2 — right (reversed) */}
@@ -45,8 +45,8 @@ export function TrustedBy() {
             </div>
           ))}
         </div>
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#F5EDDB] to-transparent pointer-events-none z-10" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#F5EDDB] to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );

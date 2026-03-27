@@ -22,17 +22,11 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#FAFAF7] min-h-screen pt-20">
+    <div className="bg-[#F5EDDB] min-h-screen pt-20">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <motion.div className="pill mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Get in Touch
-        </motion.div>
-        <motion.h1
-          className="display-lg text-[#1A1009]"
-          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+      <section className="bg-[#F5EDDB] bg-net max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        <motion.div className="pill mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Get in Touch</motion.div>
+        <motion.h1 className="display-lg text-[#1A1009]" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           Let&apos;s start a <br />
           <em className="italic font-normal text-[#C62828]">conversation.</em>
         </motion.h1>
@@ -41,13 +35,7 @@ export default function ContactPage() {
       {/* Grid */}
       <section className="max-w-7xl mx-auto px-6 md:px-8 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-          {/* Info panel */}
-          <motion.div
-            className="lg:col-span-4 space-y-4"
-            initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-          >
+          <motion.div className="lg:col-span-4 space-y-4" initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
             <div className="card-paper p-7">
               <p className="label-sm mb-3">Address</p>
               <div className="flex items-start gap-3 text-[#3D2B1F] text-sm leading-relaxed">
@@ -80,18 +68,9 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Form */}
-          <motion.div
-            className="lg:col-span-8"
-            initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
+          <motion.div className="lg:col-span-8" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
             {submitted ? (
-              <motion.div
-                className="card-paper p-14 text-center"
-                initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
+              <motion.div className="card-paper p-14 text-center" initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 300 }}>
                 <div className="w-16 h-16 rounded-full bg-[#C62828]/10 flex items-center justify-center mx-auto mb-6">
                   <svg className="w-8 h-8 text-[#C62828]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -105,56 +84,34 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="label-sm block mb-2">Your Name *</label>
-                    <input
-                      required value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder="Full name"
-                      className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#FAFAF7] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all"
-                    />
+                    <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Full name"
+                      className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F5EDDB] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all" />
                   </div>
                   <div>
                     <label className="label-sm block mb-2">Phone *</label>
-                    <input
-                      required value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#FAFAF7] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all"
-                    />
+                    <input required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+91 98765 43210"
+                      className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F5EDDB] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all" />
                   </div>
                 </div>
                 <div>
                   <label className="label-sm block mb-2">Email Address *</label>
-                  <input
-                    required type="email" value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder="you@example.com"
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#FAFAF7] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all"
-                  />
+                  <input required type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com"
+                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F5EDDB] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all" />
                 </div>
                 <div>
                   <label className="label-sm block mb-2">Enquiry Type *</label>
-                  <select
-                    required value={form.type}
-                    onChange={(e) => setForm({ ...form, type: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#FAFAF7] text-[#1A1009] text-sm focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all appearance-none cursor-pointer"
-                  >
+                  <select required value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}
+                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F5EDDB] text-[#1A1009] text-sm focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all appearance-none cursor-pointer">
                     <option value="" disabled>Select enquiry type</option>
                     {INQUIRY_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="label-sm block mb-2">Message</label>
-                  <textarea
-                    rows={4} value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Tell us about what you're looking for..."
-                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#FAFAF7] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all resize-none"
-                  />
+                  <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell us about what you're looking for..."
+                    className="w-full px-4 py-3.5 rounded-xl border border-black/10 bg-[#F5EDDB] text-[#1A1009] text-sm placeholder:text-[#B0A090] focus:outline-none focus:ring-2 focus:ring-[#C62828]/30 transition-all resize-none" />
                 </div>
-                <button
-                  type="submit" disabled={loading}
-                  className="btn-red w-full justify-center py-4 text-sm"
-                >
+                <button type="submit" disabled={loading} className="btn-red w-full justify-center py-4 text-sm">
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
                       <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">

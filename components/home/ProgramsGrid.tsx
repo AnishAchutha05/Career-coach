@@ -33,7 +33,7 @@ const PROGRAMS = [
     desc: "Liberation from limiting beliefs. Purpose-mapping before graduation.",
     href: "/campus",
     colSpan: "md:col-span-5",
-    bg: "bg-[#F5F3EE]",
+    bg: "bg-[#EFE3CA]",
     textLight: false,
   },
   {
@@ -43,7 +43,7 @@ const PROGRAMS = [
     desc: "Age-specific programmes building confidence, social skills, and resilience from foundation up.",
     href: "/campus",
     colSpan: "md:col-span-7",
-    bg: "bg-white border border-black/8",
+    bg: "bg-[#F5EDDB] border border-black/8",
     textLight: false,
   },
 ];
@@ -73,7 +73,7 @@ export function ProgramsGrid() {
   }, []);
 
   return (
-    <section ref={ref} className="bg-[#FAFAF7] py-20 md:py-28">
+    <section ref={ref} className="bg-[#F5EDDB] bg-net py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
           <div>

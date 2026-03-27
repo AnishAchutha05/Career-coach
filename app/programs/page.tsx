@@ -45,13 +45,9 @@ export default function ProgramsPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="bg-[#FAFAF7] max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
+      <section className="bg-[#F5EDDB] bg-net max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <motion.div className="pill mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>All Programmes</motion.div>
-        <motion.h1
-          className="display-lg text-[#1A1009] max-w-2xl"
-          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.h1 className="display-lg text-[#1A1009] max-w-2xl" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           Every programme, <br />
           <em className="italic font-normal text-[#C62828]">one philosophy.</em>
         </motion.h1>
@@ -62,10 +58,7 @@ export default function ProgramsPage() {
 
       {/* Program sections */}
       {PROGRAMS.map((p, i) => (
-        <section
-          key={p.id} id={p.id}
-          className={`py-16 md:py-24 ${p.dark ? "bg-[#1A1009]" : "bg-[#FAFAF7]"}`}
-        >
+        <section key={p.id} id={p.id} className={`py-16 md:py-24 ${p.dark ? "bg-[#1A1009]" : "bg-[#F5EDDB] bg-net"}`}>
           <div className="max-w-7xl mx-auto px-6 md:px-8">
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center ${i % 2 !== 0 ? "md:[&>*:first-child]:order-last" : ""}`}>
               <motion.div
@@ -74,9 +67,9 @@ export default function ProgramsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <span className={`label-sm block mb-4 ${p.dark ? "text-[#C62828]" : "text-[#C62828]"}`}>{p.tag}</span>
+                <span className="label-sm block mb-4 text-[#C62828]">{p.tag}</span>
                 <h2 className={`font-black text-3xl md:text-4xl leading-tight mb-3 ${p.dark ? "text-white" : "text-[#1A1009]"}`}>{p.title}</h2>
-                <p className={`font-semibold mb-5 text-sm ${p.dark ? "text-[#C62828]" : "text-[#C62828]"}`}>{p.subtitle}</p>
+                <p className="font-semibold mb-5 text-sm text-[#C62828]">{p.subtitle}</p>
                 <p className={`text-sm leading-relaxed mb-8 ${p.dark ? "text-white/65" : "text-[#7C6B5E]"}`}>{p.desc}</p>
                 <Link href="/contact" className={p.dark ? "btn-red" : "btn-outline-red"}>
                   Enquire About This Programme →
@@ -89,7 +82,7 @@ export default function ProgramsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <div className={`rounded-2xl p-8 border ${p.dark ? "bg-white/5 border-white/8" : "bg-white border-black/8"}`}>
+                <div className={`rounded-2xl p-8 border ${p.dark ? "bg-white/5 border-white/8" : "bg-[#EFE3CA] border-black/8"}`}>
                   <p className="label-sm mb-5">Programme Outcomes</p>
                   <ul className="space-y-3.5">
                     {p.outcomes.map((o) => (

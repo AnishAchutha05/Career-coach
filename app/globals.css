@@ -6,7 +6,7 @@
 
 /* ══════════════════════════════════════════════════════
    BUOYANCEE — DESIGN SYSTEM
-   Palette: White #FFFFFF | Red #C62828 | Deep Navy #0F172A
+   Palette: Wheat #F5EDDB | Red #C62828 | Deep Navy #0F172A
    ══════════════════════════════════════════════════════ */
 
 @layer base {
@@ -14,8 +14,8 @@
     --red:       #C62828;
     --red-deep:  #8B0000;
     --red-soft:  #EF5350;
-    --cream:     #FAFAF7;
-    --smoke:     #F5F3EE;
+    --cream:     #F5EDDB;   /* warm wheat — page base */
+    --smoke:     #EFE3CA;   /* deeper wheat — section alternates */
     --ink:       #2D1B1B;       /* was #1A1009 — warmer, softer dark */
     --deep:      #0F172A;       /* replaces black — deep navy */
     --muted:     #7C6B5E;
@@ -96,8 +96,8 @@
   /* Background net/grid — apply to any section */
   .bg-net {
     background-image:
-      linear-gradient(rgba(44,27,27,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(44,27,27,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(44,27,27,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(44,27,27,0.05) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 

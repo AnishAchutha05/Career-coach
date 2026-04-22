@@ -14,7 +14,7 @@ const MILESTONES = [
   { year: "2005", title: "Multilingual Reach", desc: "Training delivered across 6 languages to deepen impact in vernacular communities." },
   { year: "2012", title: "SANKALP Launched", desc: "Innovative college programme SANKALP — guiding students from confusion to clarity through Awareness, Alignment, and Advancement." },
   { year: "2018", title: "Press Recognition", desc: "Featured in Asian Age, The Hindu, Indian Express, Economic Times, and Deccan Herald." },
-  { year: "2024", title: "Still Growing", desc: "More than 50,000 lives touched. The mission continues — one identity at a time." },
+  { year: "2024", title: "Still Growing", desc: "More than 5 Lakh lives touched. The mission continues — one identity at a time." },
 ];
 
 export default function Timeline() {

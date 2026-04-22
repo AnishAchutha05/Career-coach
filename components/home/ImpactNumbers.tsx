@@ -5,21 +5,24 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const NUMBERS = [
-  { value: 50000, suffix: "+", label: "Lives Transformed",    color: "text-[#EF5350]" },
-  { value: 450,    suffix: "+", label: "Corporate Clients",    color: "text-white" },
-  { value: 30,    suffix: "+", label: "Years of Experience",  color: "text-[#EF5350]" },
-  { value: 6,      suffix: "",  label: "Languages Spoken",      color: "text-white" },
+  { value: 500000, display: "5L", suffix: "+", label: "Lives Transformed",    color: "text-[#EF5350]" },
+  { value: 450,                   suffix: "+", label: "Corporate Clients",    color: "text-white" },
+  { value: 30,                    suffix: "+", label: "Years of Experience",  color: "text-[#EF5350]" },
+  { value: 6,                     suffix: "",  label: "Languages Spoken",     color: "text-white" },
 ];
 
-function Counter({ value, suffix }: { value: number; suffix: string }) {
+function Counter({ value, suffix, display }: { value: number; suffix: string; display?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
 
   useEffect(() => {
     if (!inView || !ref.current) return;
+    // If a display override is set, just show it instantly — no animation
+    if (display) {
+      ref.current.textContent = display + suffix;
+      return;
+    }
     gsap.registerPlugin(ScrollTrigger);
-    
-    // Create a clean GSAP animation for the numbers
     gsap.fromTo(
       ref.current,
       { textContent: "0" },
@@ -36,7 +39,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
         },
       }
     );
-  }, [inView, value, suffix]);
+  }, [inView, value, suffix, display]);
 
   return <span ref={ref}>0{suffix}</span>;
 }
@@ -83,7 +86,7 @@ export function ImpactNumbers() {
               className="text-center md:px-8"
             >
               <div className={`text-4xl md:text-6xl font-black mb-2 tracking-tight ${n.color}`}>
-                <Counter value={n.value} suffix={n.suffix} />
+                <Counter value={n.value} suffix={n.suffix} display={(n as any).display} />
               </div>
               <div className="text-white/60 text-[10px] md:text-xs uppercase tracking-[0.15em] font-bold">
                 {n.label}

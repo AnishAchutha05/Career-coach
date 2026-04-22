@@ -55,7 +55,7 @@ function GlobeScene() {
 
 const STATS = [
   { value: "30+",  label: "Years" },
-  { value: "50K+", label: "Lives" },
+  { value: "5L+", label: "Lives" },
   { value: "6",    label: "Languages" },
   { value: "450+", label: "Corporates" },
 ];

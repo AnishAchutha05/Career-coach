@@ -29,7 +29,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
-            India&apos;s premier identity and soft skills institute. 30+ years, 6 languages, 50,000+ lives transformed.
+            India&apos;s premier identity and soft skills institute. 30+ years, 6 languages, 5 Lakh+ lives transformed.
           </p>
           <div className="space-y-3 text-sm text-white/50">
             <a href="mailto:askbuoyancee@gmail.com" className="flex items-center gap-2.5 hover:text-white transition-colors">
@@ -67,7 +67,7 @@ export function Footer() {
           <div className="space-y-5">
             {[
               { value: "30+",    label: "Years of practice" },
-              { value: "50K+",   label: "Lives transformed" },
+              { value: "5L+",    label: "Lives transformed" },
               { value: "450+",   label: "Corporate clients" },
               { value: "6",      label: "Languages" },
             ].map((s) => (

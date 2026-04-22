@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: 'Buoyancee, Ajit Kaikini, identity coaching, soft skills, corporate training, Bangalore, personality development',
   openGraph: {
     title: 'Buoyancee — Transform from Within',
-    description: 'India\'s premier identity and leadership institute. 30+ years, 6 languages, 50,000+ lives changed.',
+    description: 'India\'s premier identity and leadership institute. 30+ years, 6 languages, 5 Lakh+ lives changed.',
     type: 'website',
   },
 };

@@ -53,7 +53,7 @@ const ROADMAP = [
   {
     year: "Today",
     title: "The Legacy Continues",
-    desc: "50,000+ lives transformed. 450+ corporate clients. 6 languages. The mission remains the same: unlock the intrinsic qualities every human is born with.",
+    desc: "5 Lakh+ lives transformed. 450+ corporate clients. 6 languages. The mission remains the same: unlock the intrinsic qualities every human is born with.",
     milestone: "Living legacy",
   },
 ];

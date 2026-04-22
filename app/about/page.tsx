@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { VideoBackground3D } from "../../components/about/VideoBackground3D";
 
 /* ── Roadmap data ─────────────────────────────────── */
 const ROADMAP = [
@@ -176,20 +177,22 @@ export default function AboutPage() {
   return (
     <div className="bg-[#F5EDDB] min-h-screen overflow-x-hidden">
 
-      {/* ── VIDEO HERO ──────────────────────────── */}
-      <section className="relative w-full bg-[#0F172A] overflow-hidden" style={{ minHeight: "70vh" }}>
-        <div className="absolute inset-0">
-          <iframe
-            className="w-full h-full object-cover"
-            src="https://www.youtube.com/embed/YJXhXd_NQHA?autoplay=1&mute=1&loop=1&playlist=YJXhXd_NQHA&controls=0&modestbranding=1&rel=0"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            style={{ border: "none", pointerEvents: "none", width: "100%", height: "100%" }}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/80 via-[#0F172A]/50 to-[#0F172A] pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 pt-28 pb-20 flex flex-col justify-end h-full" style={{ minHeight: "70vh" }}>
+      {/* ── HERO TEXT ────────────────────────────── */}
+      <section className="relative w-full overflow-hidden" style={{ minHeight: "50vh" }}>
+        {/* Japan background image */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/japan.webp"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ zIndex: 0 }}
+        />
+        {/* Dark overlay — lighter so artwork is visible, text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/55" style={{ zIndex: 1 }} />
+        {/* Subtle vignette on the sides */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30 pointer-events-none" style={{ zIndex: 2 }} />
+        <div className="relative max-w-7xl mx-auto px-6 md:px-8 pt-32 pb-20 flex flex-col justify-end h-full" style={{ minHeight: "50vh", zIndex: 3 }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -203,6 +206,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
             className="display-lg text-white max-w-2xl mb-5"
+            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.7)" }}
           >
             Not an org.<br />
             <em className="italic font-normal text-[#EF5350]">A calling.</em>
@@ -211,7 +215,8 @@ export default function AboutPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-white/60 max-w-xl text-base md:text-lg mb-8"
+            className="text-white max-w-xl text-base md:text-lg mb-8"
+            style={{ textShadow: "0 1px 12px rgba(0,0,0,0.95)" }}
           >
             Ajit Kaikini left a career in healthcare to answer a deeper question: why do educated, talented people still crumble? The answer became Buoyancee.
           </motion.p>
@@ -221,6 +226,67 @@ export default function AboutPage() {
             transition={{ delay: 0.7 }}
           >
             <Link href="/contact" className="btn-red">Work with Ajit →</Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── INTERACTIVE VIDEO PLAYER ─────────────── */}
+      <section className="relative bg-[#0A0F1E] py-16 md:py-24 overflow-hidden">
+        {/* 3D animated background */}
+        <VideoBackground3D />
+        {/* subtle dark veil so video stays the focus */}
+        <div className="absolute inset-0 bg-[#0A0F1E]/55 pointer-events-none" style={{ zIndex: 1 }} />
+
+        <div className="relative max-w-5xl mx-auto px-6 md:px-8" style={{ zIndex: 2 }}>
+          {/* Label */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-3 mb-8"
+          >
+            <div className="w-1 h-6 bg-[#C62828] rounded-full" />
+            <span className="text-white/50 text-xs font-bold uppercase tracking-[0.25em]">Watch the story</span>
+          </motion.div>
+
+          {/* Video frame */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative rounded-2xl overflow-hidden shadow-[0_0_80px_rgba(198,40,40,0.15)] border border-white/8"
+          >
+            {/* Decorative top bar — like a cinema frame */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#C62828] to-transparent z-10 pointer-events-none" />
+
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full aspect-video block bg-black"
+              style={{ maxHeight: "70vh" }}
+            >
+              <source src="/story-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+
+          {/* Caption below player */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="flex items-center justify-between mt-6"
+          >
+            <div>
+              <p className="text-white/80 font-semibold text-sm">Ajit Kaikini — Founder, Buoyancee</p>
+              <p className="text-white/35 text-xs mt-1">An honest conversation about identity, purpose, and 30 years of impact.</p>
+            </div>
+            <Link href="/contact" className="btn-red text-xs py-2.5 px-5 shrink-0">
+              Work with Ajit →
+            </Link>
           </motion.div>
         </div>
       </section>

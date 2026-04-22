@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const NAV = [
   { label: "About Ajit",       href: "/about" },
@@ -21,12 +22,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 grid grid-cols-1 md:grid-cols-12 gap-12">
         {/* Brand column */}
         <div className="md:col-span-4">
-          <div className="flex items-center gap-2.5 mb-6">
-            <div className="w-9 h-9 rounded-xl bg-[#C62828] flex items-center justify-center">
-              <span className="text-white text-sm font-black">B</span>
-            </div>
-            <span className="font-black text-lg tracking-tight">BUOYANCEE</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2 mb-6">
+            <Image src="/logo-b.png" alt="Buoyancee B logo" width={52} height={52} className="h-13 w-13 object-contain" style={{height:'52px',width:'52px'}} />
+            <span className="bg-white rounded-xl px-2 py-1 inline-flex items-center">
+              <Image src="/logo-text.jpeg" alt="Buoyancee" width={140} height={42} className="h-10 w-auto object-contain" />
+            </span>
+          </Link>
           <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
             India&apos;s premier identity and soft skills institute. 30+ years, 6 languages, 50,000+ lives transformed.
           </p>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "About",     href: "/about" },
@@ -33,21 +34,26 @@ export function Navbar() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-white/96 backdrop-blur-xl shadow-[0_2px_24px_rgba(44,27,27,0.08)] border-b border-[#2D1B1B]/6"
-            : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white border border-black"
+        style={{ borderRadius: "0 0 2rem 2rem" }}
       >
         <nav className="max-w-7xl mx-auto px-5 md:px-8 h-16 md:h-18 flex items-center justify-between gap-6">
           {/* Logo */}
-          <Link href="/" className="group flex items-center gap-2.5 shrink-0">
-            <div className="w-8 h-8 rounded-2xl bg-[#C62828] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-              <span className="text-white text-xs font-black">B</span>
-            </div>
-            <span className="font-black text-base tracking-tight text-[#2D1B1B] group-hover:text-[#C62828] transition-colors">
-              BUOYANCEE
-            </span>
+          <Link href="/" className="group flex items-center gap-2 shrink-0">
+            <Image
+              src="/logo-b.png"
+              alt="Buoyancee B logo"
+              width={48}
+              height={48}
+              className="h-12 w-12 object-contain group-hover:scale-105 transition-transform"
+            />
+            <Image
+              src="/logo-text.jpeg"
+              alt="Buoyancee"
+              width={140}
+              height={44}
+              className="h-10 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop links */}
@@ -59,7 +65,7 @@ export function Navbar() {
                   className={`relative px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 ${
                     pathname === link.href
                       ? "text-[#C62828] bg-red-50 font-bold"
-                      : "text-[#2D1B1B]/80 hover:text-[#C62828] hover:bg-red-50"
+                      : "text-black hover:text-[#C62828] hover:bg-red-50"
                   }`}
                 >
                   {link.label}
@@ -100,7 +106,10 @@ export function Navbar() {
               className="fixed top-0 right-0 bottom-0 w-72 bg-white z-50 md:hidden flex flex-col shadow-2xl rounded-l-3xl"
             >
               <div className="flex items-center justify-between px-6 h-16 border-b border-[#2D1B1B]/6">
-                <span className="font-black text-[#2D1B1B] text-base">BUOYANCEE</span>
+                <div className="flex items-center gap-1.5">
+                  <Image src="/logo-b.png" alt="Buoyancee B logo" width={32} height={32} className="h-8 w-8 object-contain" />
+                  <Image src="/logo-text.jpeg" alt="Buoyancee" width={100} height={28} className="h-7 w-auto object-contain" />
+                </div>
                 <button onClick={() => setOpen(false)} className="w-8 h-8 flex items-center justify-center rounded-2xl bg-[#F5F3EE] text-[#2D1B1B]">
                   <X size={14} />
                 </button>

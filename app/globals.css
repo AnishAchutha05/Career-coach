@@ -253,6 +253,13 @@
     to   { transform: translateX(-50%); }
   }
 
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
   /* Spinning globe */
   @keyframes globe-spin {
     from { transform: rotateY(0deg); }

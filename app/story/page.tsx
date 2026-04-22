@@ -53,7 +53,7 @@ export default function StoryPage() {
                 The Story <br/> behind the <br/> <span className="italic font-light text-white/50">Shift.</span>
               </h1>
               <p className="text-xl text-gray-400 leading-relaxed font-light">
-                Ajit Achutha didn&apos;t start with a business plan. He started with a question: Why do high-performers feel like imposters?
+                Ajit Kaikini didn&apos;t start with a business plan. He started with a question: Why do high-performers feel like imposters?
               </p>
             </div>
 
@@ -66,23 +66,28 @@ export default function StoryPage() {
               >
                 <video 
                   ref={videoRef}
-                  poster="/founder-poster.jpg" // Placeholder for your thumbnail
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
+                  controls
+                  controlsList="nodownload"
+                  playsInline
                 >
                   <source src="/story-video.mp4" type="video/mp4" />
                 </video>
-                
-                {/* Floating Play Trigger */}
-                <button 
-                  onClick={toggleVideo}
-                  className="absolute bottom-8 right-8 w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-xl z-20"
-                >
-                  {isPlaying ? <Pause /> : <Play className="ml-1" />}
-                </button>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                {/* Custom overlay play button — hidden when controls are visible */}
+                {!isPlaying && (
+                  <button 
+                    onClick={toggleVideo}
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/10 transition-all z-20 pointer-events-auto"
+                    aria-label="Play video"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-indigo-600/90 text-white flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-xl backdrop-blur-sm">
+                      <Play className="ml-1 w-8 h-8" />
+                    </div>
+                  </button>
+                )}
               </motion.div>
             </div>
           </div>

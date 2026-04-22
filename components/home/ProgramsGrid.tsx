@@ -28,9 +28,9 @@ const PROGRAMS = [
   },
   {
     tag: "College",
-    name: "MUKTI",
+    name: "SANKALP",
     target: "Campus",
-    desc: "Liberation from limiting beliefs. Purpose-mapping before graduation.",
+    desc: "From confusion to clarity. A structured framework that takes students from awareness to alignment to advancement — before graduation.",
     href: "/campus",
     colSpan: "md:col-span-5",
     bg: "bg-[#EFE3CA]",

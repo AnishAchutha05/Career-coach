@@ -1,4 +1,5 @@
 import { HeroSection }        from "@/components/home/HeroSection";
+import { AmbleeCarousel }     from "@/components/home/AmbleeCarousel";
 import { ImpactNumbers }       from "@/components/home/ImpactNumbers";
 import { PhilosophyStrip }     from "@/components/home/PhilosophyStrip";
 import { AboutTeaser }          from "@/components/home/AboutTeaser";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <HeroSection />
+      <AmbleeCarousel />
       <ImpactNumbers />
       <PhilosophyStrip />
       <AboutTeaser />

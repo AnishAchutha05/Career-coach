@@ -26,10 +26,10 @@ const PROGRAMS = [
     dark: true,
   },
   {
-    id: "mukti", tag: "College", title: "MUKTI",
-    subtitle: "Liberation from limitation",
-    desc: "MUKTI means liberation. This campus programme challenges students to break free from limiting beliefs, discover their purpose, and write a new script for their professional life — before graduation.",
-    outcomes: ["Purpose discovery workshops", "Career vision mapping", "Self-limiting belief demolition", "Professional identity foundations"],
+    id: "sankalp", tag: "College", title: "SANKALP",
+    subtitle: "From confusion to confident decision-making",
+    desc: "SANKALP is a structured framework designed to facilitate both personal and professional growth through a disciplined, purposeful approach to life and work. Built on three core pillars — Awareness, Alignment, and Advancement — it bridges the gap between mere effort and meaningful results.",
+    outcomes: ["Self-awareness and identity clarity", "Aligning daily actions with purpose", "Structured advancement toward goals", "Confident career decision-making"],
     dark: false,
   },
   {

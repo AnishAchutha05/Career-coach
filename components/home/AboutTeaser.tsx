@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export function AboutTeaser() {
   return (
@@ -20,13 +21,13 @@ export function AboutTeaser() {
           >
             <div className="aspect-[4/5] bg-[#1A1009] rounded-3xl overflow-hidden relative shadow-2xl">
               <div className="absolute -bottom-4 -left-4 w-28 h-28 bg-[#C62828] rounded-2xl z-[-1]" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-white/10 text-center px-8">
-                  <div className="text-6xl mb-4">📸</div>
-                  <p className="text-sm font-serif italic">Ajit Kaikini</p>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+              <Image
+                src="/ajit.jpg"
+                alt="Ajit Kaikini — Founder, Buoyancee"
+                fill
+                className="object-cover object-top"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                 <p className="text-white font-bold text-xl">Ajit Kaikini</p>
                 <p className="text-[#EF5350] text-sm font-semibold uppercase tracking-widest">Principal Coach</p>
               </div>

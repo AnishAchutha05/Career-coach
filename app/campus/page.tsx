@@ -12,7 +12,7 @@ const SCHOOL_PROGRAMS = [
 ];
 
 const COLLEGE_PROGRAMS = [
-  { name: "MUKTI",                        tag: "Flagship",        desc: "Self-discovery and purpose-mapping for students before they enter the professional world. Experiential and transformational." },
+  { name: "SANKALP",                       tag: "Flagship",        desc: "A structured framework for personal and professional growth — taking students from Awareness to Alignment to Advancement before they enter the professional world." },
   { name: "Career Planning & Placement",  tag: "Placement Ready", desc: "Interview skills, group discussion, resume presence, and first-impression grooming for campus placements." },
   { name: "Communication Skills",          tag: "Foundations",     desc: "Written, verbal, and non-verbal communication — built for professional environments across all industries." },
   { name: "Leadership Lab",                tag: "Advanced",        desc: "Student leadership councils, college events, and team facilitation skills for emerging campus leaders." },

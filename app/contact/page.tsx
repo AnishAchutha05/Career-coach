@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 const INQUIRY_TYPES = [
   "Corporate Training", "Campus Programme", "Individual Coaching",
-  "MUKTI / College Programme", "Press / Media", "Other",
+  "SANKALP / College Programme", "Press / Media", "Other",
 ];
 
 export default function ContactPage() {
